@@ -1,24 +1,56 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Calculadora Juan David Zamudio</title>
 </head>
 
+<h1>Calculadora Juan</h1>
 <script>
+    //paso 1
+    /*
+            function sumita(a, b) {
+                return a+b;
+            }
+        
+            function restita(a, b) {
+                return a-b;
+            }
+        
+            function multi(a, b) {
+                return a*b;
+            }
+        
+            let suma = sumita(numero1,numero2);
+            let resta = restita(numero1,numero2);
+            let multiplica = multi(numero1,numero2)
+            let division = numero1 / numero2;
+        
+            document.write(suma, "<br>");
+            document.write(resta, "<br>");
+            document.write(multiplica, "<br>");
+            document.write(division, "<br>");
+        */
 
-    let c="";
 
-    while(c!="salir"){
+    //PASO 2
+    /*
+        let c="";
+    
+        while(c!="salir"){
+        let a = parseInt(prompt("Ingrese Numero 1"));
+        let b = parseInt(prompt("Ingrese Numero 2"));
+        c = prompt("Que operacion desea");
+        alert(realizarOperacion(a, b, c));
+        }
+    */
+
+/*PASO 3
     let a = parseInt(prompt("Ingrese Numero 1"));
     let b = parseInt(prompt("Ingrese Numero 2"));
-    c = prompt("Que operacion desea");
-    alert(realizarOperacion(a, b, c));
-    }
-
-   
+    let c = prompt("Que operacion desea");
 
 
     function realizarOperacion(num1, num2, operacion) {
@@ -26,48 +58,82 @@
             let suma = num1 + num2;
             return suma;
         }
-
         else if (operacion == "-") {
             let resta = num1 - num2;
             return resta;
         }
-
-        else {
-            document.write("Seleccion mala");
+        else if (operacion == "*") {
+            let multiplicacion = num1 * num2;
+            return multiplicacion;
         }
+        else if (operacion == "/") {
+            if (num2 === 0) {
+                return "Error division por cero no permitida";
+            } else {
+                let division = num1 / num2;
+                return division;
+            }
+        }
+        else {
+            alert("Seleccion mala");
+        }
+    }
+    document.write("este es el resultado de la operacion: ", realizarOperacion(a, b, c));
 
+    fin del paso 3*/
+    
+    function dividir(numerador, denominador) {
+        if (denominador === 0) {
+            return "Error: División por cero no permitida";
+        } else {
+            return numerador / denominador;
+        }
+    }
+    function mostrarResultado() {
+        const numerador = parseFloat(document.getElementById("numerador").value); 
+        const denominador = parseFloat(document.getElementById("denominador").value); 
+        const resultado = dividir(numerador, denominador);
+        document.getElementById("resultado").innerText = resultado;
     }
 
 
-    /*
-        function sumita(a, b) {
-            return a+b;
-        }
-    
-        function restita(a, b) {
-            return a-b;
-        }
-    
-        function multi(a, b) {
-            return a*b;
-        }
-    
-        let suma = sumita(numero1,numero2);
-        let resta = restita(numero1,numero2);
-        let multiplica = multi(numero1,numero2)
-        let division = numero1 / numero2;
-    
-        document.write(suma, "<br>");
-        document.write(resta, "<br>");
-        document.write(multiplica, "<br>");
-        document.write(division, "<br>");
-    */
+    function realizarOperacion(num1, num2, operacion) { 
+        if (operacion == "+") { return num1 + num2;          
+        } else if (operacion == "-") {
+            return num1 - num2; 
+        } else if (operacion == "*") {
+            return num1 * num2; 
+        } else if (operacion == "/") {
+            if (num2 === 0) { 
+                return "Error: División por cero no permitida"; 
+            } else {
+                return num1 / num2; 
+            } 
+        } else { 
+            return "Operación no válida";  
+        } 
+    } 
+    function iniciarCalculadora() {
+        let continuar = true; 
+        while (continuar) {
+            let num1 = parseFloat(prompt("Ingrese el primer número:"));
+            let num2 = parseFloat(prompt("Ingrese el segundo número:"));
+            let operacion = prompt("Ingrese la operación (+, -, *, /) o 'salir' para terminar:"); 
+            if (operacion.toLowerCase() === "salir") {
+                continuar = false;
+                alert("Presionaste salir, hasta luego") 
+            } else {
+                let resultado = realizarOperacion(num1, num2, operacion);
+                alert("El resultado de la operación es: " + resultado);
+            } 
+        } 
+    }
 
 </script>
 
 
 <body>
-
+    <h1>Calculadora Continua</h1> <button onclick="iniciarCalculadora()">Iniciar
 </body>
 
 </html>
